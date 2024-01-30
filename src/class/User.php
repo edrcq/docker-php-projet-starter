@@ -80,4 +80,17 @@ class User {
         
         return $pdo->lastInsertId();
     }
+    
+    static function getById($id) {
+        global $pdo;
+        
+        $stmh = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+        $stmh->execute([$id]);
+        
+        $data = $stmh->fetch();
+        if ($data) {
+            return new User($data);
+        }
+        return false;
+    }
 }
