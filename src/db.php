@@ -13,7 +13,12 @@ function initDB() {
 
 
     try {
-        $db = new PDO($dsn, $db_user, $db_pass);
+        $db = new PDO($dsn, $db_user, $db_pass,
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::MYSQL_ATTR_INIT_COMMAND => "SET time_zone = 'Europe/Paris'",
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        ]);
     }
     catch (Exception $e) {
         die('Erreur MySQL, maintenance en cours.' . $e->getMessage());
