@@ -3,6 +3,6 @@
 docker/mariadb/data/*
 docker/mariadb/logs/*
 docker/mariadb/conf/*
-!mariadb/data/.gitignore
-!mariadb/logs/.gitignore
-!mariadb/conf/.gitignore
+!docker/mariadb/data/.gitkeep
+!docker/mariadb/logs/.gitkeep
+!docker/mariadb/conf/.gitkeep
